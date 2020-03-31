@@ -1,12 +1,12 @@
-# Moodboard Backend
+# Nest.js Backend Template
 
 ## Getting started
 
 1. Clone this repository and open it
 
 ```bash
-$ git clone https://github.com/z1digitalstudio/moodboard-backend
-$ cd moodboard-backend
+$ git clone https://github.com/z1-lab/nestjs-backend-template
+$ cd nestjs-backend-template
 ```
 
 2. Install dependencies
