@@ -1,0 +1,18 @@
+type Example {
+  id: String!
+  name: String!
+  body: String!
+}
+
+type Query {
+  examples: [Example!]!
+}
+
+input CreateExampleDto {
+  name: String!
+  body: String!
+}
+
+type Mutation {
+  createExample(dto: CreateExampleDto!): Example!
+}

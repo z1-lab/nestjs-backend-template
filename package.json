@@ -1,0 +1,100 @@
+{
+  "name": "nestjs-backend-template",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Z1 Digital Studio",
+  "scripts": {
+    "dev": "tsnd --respawn -r @babel/register --inspect -- src/index.ts",
+    "build": "babel ./src -d ./dist --extensions .ts --copy-files",
+    "typecheck": "tsc",
+    "start": "node dist/index.js",
+    "lint:base": "eslint --ext .js,.json,.ts,.graphql",
+    "lint": "yarn lint:base src",
+    "gql:typings": "tsnd -r @babel/register src/generate-typings.ts",
+    "prisma": "prisma2",
+    "test": "jest",
+    "test:debug": "node --inspect ./node_modules/.bin/jest --watch --runInBand --testTimeout 999999",
+    "heroku-postbuild": "yarn prisma2 migrate up --experimental && yarn prisma2 generate && yarn build",
+    "postinstall": "yarn prisma2 generate"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,ts,graphql}": [
+      "yarn lint:base --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn typecheck && lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@babel/register": "^7.8.6",
+    "@nestjs/testing": "^7.0.3",
+    "@prisma/cli": "^2.0.0-preview025",
+    "@types/bcrypt": "^3.0.0",
+    "@types/faker": "^4.1.10",
+    "@types/inquirer": "^6.5.0",
+    "@types/jest": "^25.1.4",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^13.9.2",
+    "@types/nodemailer": "^6.4.0",
+    "@types/supertest": "^2.0.8",
+    "@types/uuid": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "apollo-server-testing": "^2.11.0",
+    "babel-jest": "^25.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-graphql": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "faker": "^4.1.0",
+    "get-port": "^5.1.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "module-alias": "^2.2.2",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^25.2.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.7",
+    "@nestjs/common": "^7.0.3",
+    "@nestjs/config": "^0.4.0",
+    "@nestjs/core": "^7.0.3",
+    "@nestjs/graphql": "^7.0.9",
+    "@nestjs/platform-fastify": "^7.0.3",
+    "@prisma/client": "^2.0.0-preview024",
+    "apollo-server-fastify": "^2.11.0",
+    "dotenv": "^8.2.0",
+    "fastify": "^2.12.1",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
+    "ms": "^2.1.2",
+    "reflect-metadata": "^0.1.13"
+  },
+  "resolutions": {
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
+    "@typescript-eslint/typescript-estree": "2.23.0"
+  }
+}

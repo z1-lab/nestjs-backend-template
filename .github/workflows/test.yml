@@ -1,0 +1,53 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+env:
+  DATABASE_URL: postgresql://backend:backend@localhost:5432/backend?schema=public
+  DB_PORT: 5432
+jobs:
+  typechecking:
+    name: Typechecking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: yarn
+      - name: Install Prisma Client
+        run: yarn prisma2 generate
+      - name: Typechecking
+        run: yarn typecheck
+  tests:
+    timeout-minutes: 5
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Build docker-compose stack
+        run: docker-compose up -d
+      - name: Install dependencies
+        run: yarn
+      - name: Check running containers
+        run: docker ps -a
+      - name: Migrations
+        run: yarn prisma2 migrate up --experimental
+      - name: Install Prisma Client
+        run: yarn prisma2 generate
+      - name: Test
+        run: yarn test

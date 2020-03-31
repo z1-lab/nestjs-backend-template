@@ -1,0 +1,30 @@
+{
+  "sourceMaps": "both",
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "12"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    [
+      "babel-plugin-module-resolver",
+      {
+        "cwd": "babelrc",
+        "root": ["./"],
+        "alias": {
+          "@": "./src"
+        }
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ]
+}

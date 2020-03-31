@@ -1,0 +1,29 @@
+name: Pull Request
+on: pull_request
+jobs:
+  linter:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: yarn
+      - name: Run linter
+        run: yarn lint --fix
+      - name: Commit files
+        id: commit_files
+        working-directory: ./.github/workflows
+        run: |
+          bash ./scripts/commit.sh -xe
+      - name: Push changes
+        if: steps.commit_files.outputs.should_commit != '0'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.head_ref }}
