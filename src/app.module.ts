@@ -14,7 +14,7 @@ import { ExampleModule } from './example/example.module';
       debug: true,
       introspection: true,
       typePaths: [resolve(__dirname, './**/*.graphql')],
-      context: req => ({ req, __gqlContext: true }),
+      context: (req) => ({ req, __gqlContext: true }),
       fieldResolverEnhancers: ['guards'],
     }),
     ExampleModule,

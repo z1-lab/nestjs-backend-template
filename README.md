@@ -30,13 +30,13 @@ $ docker-compose up
 5. Generate the prisma client
 
 ```bash
-$ yarn prisma2 generate
+$ yarn prisma generate
 ```
 
 6. Create the database model
 
 ```bash
-$ yarn prisma2 migrate up --experimental
+$ yarn prisma migrate up --experimental
 ```
 
 7. Launch the dev mode
