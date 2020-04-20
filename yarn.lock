@@ -1454,10 +1454,10 @@
   resolved "https://registry.yarnpkg.com/@prisma/cli/-/cli-2.0.0-beta.1.tgz#7e5f13db65244cf723323c3046d63cd744f2f026"
   integrity sha512-uMCthsNkLCmQiPs6veMdqT/Y4RWRbn8Y0GAfqvg+qStene6Pqid7DTrdN7hC+VYlY7Ok5Fxcb6oBis1jsOO7pQ==
 
-"@prisma/client@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-beta.1.tgz#457d83167cf1657e16473ebf467a9b339d982932"
-  integrity sha512-4uRHUJs/RGc517wLZPrr9ZRq/NbUoPrX4Pa8mb4wIluJMxk4d1raE0O2/LBM5EcVH0RaoIA+dffTvPGfI3by+g==
+"@prisma/client@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-beta.2.tgz#dd7b357f65e8100cd6cc1b610d848b72217640bb"
+  integrity sha512-VhNYeeGTrFfLjB/JL7XPoWpxSTCb+YV+F3ggR1X0CGa4b/u6Kxy65aElLozs+yFdMQPVNkyg2PwUO8xQ7G9fpg==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
