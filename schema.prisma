@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Example {
-  id   String @id @default(uuid())
+  id   String @default(uuid()) @id
   name String
   body String
 }
