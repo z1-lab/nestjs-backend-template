@@ -25,6 +25,8 @@ jobs:
         run: yarn
       - name: Install Prisma Client
         run: yarn prisma2 generate
+      - name: Generate GraphQL Typings
+        run: yarn gql:typings
       - name: Typechecking
         run: yarn typecheck
   tests:
@@ -49,5 +51,7 @@ jobs:
         run: yarn prisma2 migrate up --experimental
       - name: Install Prisma Client
         run: yarn prisma2 generate
+      - name: Generate GraphQL Typings
+        run: yarn gql:typings
       - name: Test
         run: yarn test
