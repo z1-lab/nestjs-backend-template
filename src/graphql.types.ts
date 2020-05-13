@@ -11,6 +11,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Date: any;
+  PaginationAmount: any;
 };
 
 export type CreateExampleDto = {
@@ -35,6 +36,7 @@ export type Mutation = {
 export type MutationCreateExampleArgs = {
   dto: CreateExampleDto;
 };
+
 
 export type Query = {
    __typename?: 'Query';
@@ -121,6 +123,7 @@ export type ResolversTypes = {
   CreateExampleDto: CreateExampleDto,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
   Date: ResolverTypeWrapper<Scalars['Date']>,
+  PaginationAmount: ResolverTypeWrapper<Scalars['PaginationAmount']>,
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -132,6 +135,7 @@ export type ResolversParentTypes = {
   CreateExampleDto: CreateExampleDto,
   Boolean: Scalars['Boolean'],
   Date: Scalars['Date'],
+  PaginationAmount: Scalars['PaginationAmount'],
 };
 
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
@@ -149,6 +153,10 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   createExample?: Resolver<ResolversTypes['Example'], ParentType, ContextType, RequireFields<MutationCreateExampleArgs, 'dto'>>,
 };
 
+export interface PaginationAmountScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['PaginationAmount'], any> {
+  name: 'PaginationAmount'
+}
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   examples?: Resolver<Array<ResolversTypes['Example']>, ParentType, ContextType>,
 };
@@ -157,6 +165,7 @@ export type Resolvers<ContextType = any> = {
   Date?: GraphQLScalarType,
   Example?: ExampleResolvers<ContextType>,
   Mutation?: MutationResolvers<ContextType>,
+  PaginationAmount?: GraphQLScalarType,
   Query?: QueryResolvers<ContextType>,
 };
 
