@@ -10,8 +10,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  Date: any;
-  PaginationAmount: any;
+  Date: Date;
+  PaginationAmount: number;
 };
 
 export type CreateExampleDto = {

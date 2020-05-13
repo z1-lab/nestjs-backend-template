@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { resolve } from 'path';
 import { ExampleModule } from './example/example.module';
 import depthLimit from 'graphql-depth-limit';
+import { ScalarsModule } from './scalars/scalars.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,6 +22,7 @@ import depthLimit from 'graphql-depth-limit';
       validationRules: [depthLimit(999)],
     }),
     ExampleModule,
+    ScalarsModule,
   ],
 })
 export class AppModule {}
