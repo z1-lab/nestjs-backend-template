@@ -10,3 +10,6 @@ generates:
     config:
       enumsAsTypes: true
       maybeValue: 'T extends PromiseLike<infer U> ? Promise<U> : T'
+      scalars:
+        Date: Date
+        PaginationAmount: number
