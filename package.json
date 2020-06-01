@@ -58,7 +58,7 @@
     "@types/uuid": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.34.0",
-    "apollo-server-testing": "^2.13.1",
+    "apollo-server-testing": "^2.14.1",
     "babel-jest": "^25.2.4",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.0",
