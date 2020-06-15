@@ -79,7 +79,7 @@
     "typescript": "^3.9.3"
   },
   "engines": {
-    "node": ">=12"
+    "node": "12.x.x"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.2",
