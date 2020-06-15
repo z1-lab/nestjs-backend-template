@@ -1,7 +1,7 @@
 import { CustomScalar } from '@nestjs/graphql';
 import { GraphQLScalarType } from 'graphql';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function GraphQLScalar<T = unknown, K = unknown>() {
   type ScalarType = CustomScalar<T, K>;
 

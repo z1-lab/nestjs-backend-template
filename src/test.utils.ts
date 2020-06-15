@@ -8,7 +8,7 @@ import getPort from 'get-port';
 
 export type GraphQLTestClient = ReturnType<typeof createGraphQLTestClient>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function createGraphQLTestClient(app: INestApplication, token?: string) {
   const httpServer = app.getHttpServer();
 
