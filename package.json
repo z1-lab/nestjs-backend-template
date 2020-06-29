@@ -44,7 +44,7 @@
     "@graphql-codegen/typescript": "1.15.4",
     "@graphql-codegen/typescript-resolvers": "1.15.4",
     "@nestjs/testing": "^7.2.0",
-    "@prisma/cli": "^2.0.1",
+    "@prisma/cli": "^2.1.3",
     "@types/bcrypt": "^3.0.0",
     "@types/faker": "^4.1.12",
     "@types/graphql-depth-limit": "^1.1.2",
