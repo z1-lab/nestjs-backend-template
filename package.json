@@ -95,7 +95,7 @@
     "graphql": "^15.1.0",
     "graphql-depth-limit": "^1.1.0",
     "graphql-scalar": "^0.0.11",
-    "graphql-tools": "^6.0.10",
+    "graphql-tools": "^6.0.12",
     "ms": "^2.1.2",
     "reflect-metadata": "^0.1.13"
   }
