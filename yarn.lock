@@ -2286,16 +2286,16 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/common@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.2.0.tgz#f191c79dca5939188544975e624c1ab0fcb2f4db"
-  integrity sha512-R9oU/uni80/a/oDV3/T7ZtoJ9GMcLj5bOQrmaanAKAe50+xIueAR4R7hwYun3wSL/uvbAT1N9g4EXI3zkboCHw==
+"@nestjs/common@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-7.3.2.tgz#ce9e63085cf74948f00a167c4b55243c288b5eaa"
+  integrity sha512-qK8szqv0PuHDVDPbQjVV+Z91QasDIe7cbzULqtNDARIRkgU4LGk/Q+32E3kBWfp8gh5axRkgVuKtpCiq2s55Cg==
   dependencies:
     axios "0.19.2"
     cli-color "2.0.0"
     iterare "1.2.1"
     tslib "2.0.0"
-    uuid "8.1.0"
+    uuid "8.2.0"
 
 "@nestjs/config@^0.5.0":
   version "0.5.0"
