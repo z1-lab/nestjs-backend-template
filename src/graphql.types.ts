@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 export type Maybe<T> = T extends PromiseLike<infer U> ? Promise<U> : T;
+export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 
 /** All built-in and custom scalars, mapped to their actual values */
@@ -14,21 +15,25 @@ export type Scalars = {
   PaginationAmount: number;
 };
 
-export type CreateExampleDto = {
-  name: Scalars['String'];
-  body: Scalars['String'];
-};
-
-
 export type Example = {
-   __typename?: 'Example';
+  __typename?: 'Example';
   id: Scalars['String'];
   name: Scalars['String'];
   body: Scalars['String'];
 };
 
+export type Query = {
+  __typename?: 'Query';
+  examples: Array<Example>;
+};
+
+export type CreateExampleDto = {
+  name: Scalars['String'];
+  body: Scalars['String'];
+};
+
 export type Mutation = {
-   __typename?: 'Mutation';
+  __typename?: 'Mutation';
   createExample: Example;
 };
 
@@ -38,21 +43,22 @@ export type MutationCreateExampleArgs = {
 };
 
 
-export type Query = {
-   __typename?: 'Query';
-  examples: Array<Example>;
-};
 
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
 
-export type StitchingResolver<TResult, TParent, TContext, TArgs> = {
+export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
   fragment: string;
   resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
 };
 
+export type NewStitchingResolver<TResult, TParent, TContext, TArgs> = {
+  selectionSet: string;
+  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
+};
+export type StitchingResolver<TResult, TParent, TContext, TArgs> = LegacyStitchingResolver<TResult, TParent, TContext, TArgs> | NewStitchingResolver<TResult, TParent, TContext, TArgs>;
 export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> =
   | ResolverFn<TResult, TParent, TContext, TArgs>
   | StitchingResolver<TResult, TParent, TContext, TArgs>;
@@ -102,7 +108,7 @@ export type TypeResolveFn<TTypes, TParent = {}, TContext = {}> = (
   info: GraphQLResolveInfo
 ) => Maybe<TTypes> | Promise<Maybe<TTypes>>;
 
-export type isTypeOfResolverFn<T = {}> = (obj: T, info: GraphQLResolveInfo) => boolean | Promise<boolean>;
+export type IsTypeOfResolverFn<T = {}> = (obj: T, info: GraphQLResolveInfo) => boolean | Promise<boolean>;
 
 export type NextResolverFn<T> = () => Promise<T>;
 
@@ -116,57 +122,57 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Query: ResolverTypeWrapper<{}>,
-  Example: ResolverTypeWrapper<Example>,
-  String: ResolverTypeWrapper<Scalars['String']>,
-  Mutation: ResolverTypeWrapper<{}>,
-  CreateExampleDto: CreateExampleDto,
-  Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
-  Date: ResolverTypeWrapper<Scalars['Date']>,
-  PaginationAmount: ResolverTypeWrapper<Scalars['PaginationAmount']>,
+  Example: ResolverTypeWrapper<Example>;
+  String: ResolverTypeWrapper<Scalars['String']>;
+  Query: ResolverTypeWrapper<{}>;
+  CreateExampleDto: CreateExampleDto;
+  Mutation: ResolverTypeWrapper<{}>;
+  Date: ResolverTypeWrapper<Scalars['Date']>;
+  PaginationAmount: ResolverTypeWrapper<Scalars['PaginationAmount']>;
+  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Query: {},
-  Example: Example,
-  String: Scalars['String'],
-  Mutation: {},
-  CreateExampleDto: CreateExampleDto,
-  Boolean: Scalars['Boolean'],
-  Date: Scalars['Date'],
-  PaginationAmount: Scalars['PaginationAmount'],
+  Example: Example;
+  String: Scalars['String'];
+  Query: {};
+  CreateExampleDto: CreateExampleDto;
+  Mutation: {};
+  Date: Scalars['Date'];
+  PaginationAmount: Scalars['PaginationAmount'];
+  Boolean: Scalars['Boolean'];
 };
 
-export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
-  name: 'Date'
-}
-
 export type ExampleResolvers<ContextType = any, ParentType extends ResolversParentTypes['Example'] = ResolversParentTypes['Example']> = {
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
-  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
-  __isTypeOf?: isTypeOfResolverFn<ParentType>,
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
+};
+
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  examples?: Resolver<Array<ResolversTypes['Example']>, ParentType, ContextType>;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  createExample?: Resolver<ResolversTypes['Example'], ParentType, ContextType, RequireFields<MutationCreateExampleArgs, 'dto'>>,
+  createExample?: Resolver<ResolversTypes['Example'], ParentType, ContextType, RequireFields<MutationCreateExampleArgs, 'dto'>>;
 };
 
-export interface PaginationAmountScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['PaginationAmount'], any> {
-  name: 'PaginationAmount'
+export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
+  name: 'Date';
 }
 
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  examples?: Resolver<Array<ResolversTypes['Example']>, ParentType, ContextType>,
-};
+export interface PaginationAmountScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['PaginationAmount'], any> {
+  name: 'PaginationAmount';
+}
 
 export type Resolvers<ContextType = any> = {
-  Date?: GraphQLScalarType,
-  Example?: ExampleResolvers<ContextType>,
-  Mutation?: MutationResolvers<ContextType>,
-  PaginationAmount?: GraphQLScalarType,
-  Query?: QueryResolvers<ContextType>,
+  Example?: ExampleResolvers<ContextType>;
+  Query?: QueryResolvers<ContextType>;
+  Mutation?: MutationResolvers<ContextType>;
+  Date?: GraphQLScalarType;
+  PaginationAmount?: GraphQLScalarType;
 };
 
 
