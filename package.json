@@ -75,7 +75,7 @@
     "prettier": "^2.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.2",
-    "ts-node-dev": "^1.0.0-pre.52",
+    "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7"
   },
   "engines": {
