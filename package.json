@@ -66,7 +66,7 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "faker": "^4.1.0",
+    "faker": "^5.5.3",
     "get-port": "^5.1.1",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
