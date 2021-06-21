@@ -41,7 +41,7 @@
     "@babel/register": "^7.10.5",
     "@graphql-codegen/add": "^1.17.0",
     "@graphql-codegen/cli": "1.17.0",
-    "@graphql-codegen/typescript": "1.17.6",
+    "@graphql-codegen/typescript": "1.22.2",
     "@graphql-codegen/typescript-resolvers": "1.17.0",
     "@nestjs/testing": "^7.4.4",
     "@prisma/cli": "^2.8.0",
