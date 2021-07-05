@@ -42,7 +42,7 @@
     "@graphql-codegen/add": "^1.17.0",
     "@graphql-codegen/cli": "1.17.0",
     "@graphql-codegen/typescript": "1.17.6",
-    "@graphql-codegen/typescript-resolvers": "1.17.0",
+    "@graphql-codegen/typescript-resolvers": "1.19.5",
     "@nestjs/testing": "^7.4.4",
     "@prisma/cli": "^2.8.0",
     "@types/bcrypt": "^3.0.0",
